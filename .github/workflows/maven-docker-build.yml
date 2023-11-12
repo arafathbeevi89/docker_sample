@@ -36,5 +36,4 @@ jobs:
         TAG=$(TZ='CET' date +'%d_%m_%Y_%H_%M_%S')
         IMAGE_TAGGED_NAME=$IMAGE_NAME:$TAG
         docker build -t $IMAGE_TAGGED_NAME .
-        docker image ls
         docker push $IMAGE_TAGGED_NAME
