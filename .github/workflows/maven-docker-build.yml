@@ -42,9 +42,8 @@ jobs:
         TAG=$(date +'%Y%m%d%H%M%S')
         IMAGE_TAGGED_NAME=$IMAGE_NAME:$TAG
 
-        docker buildx create --use
         docker buildx build --platform linux/amd64,linux/arm64 -t $IMAGE_TAGGED_NAME . 2>&1 | tee build.log
 
-        docker images
+        docker image ls
 
         docker push $IMAGE_TAGGED_NAME
