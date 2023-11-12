@@ -18,6 +18,11 @@ The project has the following key components:
 
 - **HelloWorldController.java**: This is a simple RESTful controller that exposes an endpoint at `/hello/world` and returns the message "Hello, Arafath Beevi" when accessed.
 
+## GitHub Actions Workflow
+
+The project is equipped with a GitHub Actions workflow (maven-docker-build.yml) that automates Maven build processes. This workflow is activated with every push to any branch.
+On any branch, the Maven build process will execute. However, the Maven build and Docker image push processes will only be initiated when changes are pushed to the main branch.
+
 ## Building the Project
 
 To build the project and create a Docker image, follow these steps:
