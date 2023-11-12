@@ -6,7 +6,7 @@ on:
       - build_docker_push
 
 jobs:
-  maven-build:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
