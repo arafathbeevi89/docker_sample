@@ -42,10 +42,8 @@ jobs:
         TAG=$(date +'%Y%m%d%H%M%S')
         IMAGE_TAGGED_NAME=$IMAGE_NAME:$TAG
 
-        docker build -t $IMAGE_TAGGED_NAME . 2>&1 | tee build.log
-
-        docker tag $IMAGE_TAGGED_NAME $IMAGE_NAME:latest
+        docker build -t $IMAGE_TAGGED_NAME .
 
         docker image ls
        
-        docker push $IMAGE_NAME:latest
+        docker push $IMAGE_TAGGED_NAME
