@@ -44,5 +44,7 @@ jobs:
 
         echo "IMAGE_NAME: $IMAGE_NAME"
 
+        docker images
+
         # Push the image to Docker Hub
         docker push $IMAGE_NAME:latest
