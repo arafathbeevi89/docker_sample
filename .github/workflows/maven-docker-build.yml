@@ -33,7 +33,7 @@ jobs:
         IMAGE_NAME: arafathbeevi/docker
       run: |
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        TAG=$(date +'%d_%m_%Y_%H_%M_%S')
+        TAG=$(TZ='CET' date +'%d_%m_%Y_%H_%M_%S')
         IMAGE_TAGGED_NAME=$IMAGE_NAME:$TAG
         docker build -t $IMAGE_TAGGED_NAME .
         docker image ls
