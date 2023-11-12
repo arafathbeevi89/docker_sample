@@ -44,8 +44,8 @@ jobs:
 
         docker build -t $IMAGE_TAGGED_NAME . 2>&1 | tee build.log
 
-        docker tag $IMAGE_TAGGED_NAME $IMAGE_TAGGED_NAME:1
+        docker tag $IMAGE_TAGGED_NAME $IMAGE_NAME:latest
 
         docker image ls
-
-        docker push $IMAGE_TAGGED_NAME:1
+       
+        docker push $IMAGE_NAME:latest
