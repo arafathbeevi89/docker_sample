@@ -37,12 +37,13 @@ jobs:
       run: |
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-        # Build Docker image using your existing Dockerfile in the root directory
-        docker buildx create --use
-        docker buildx build --platform linux/amd64,linux/arm64 -t arafathbeevi/docker:latest .
+        # Set a specific tag for the Docker image
+        TAG=$(date +'%Y%m%d%H%M%S')
+        IMAGE_TAGGED_NAME=$IMAGE_NAME:$TAG
 
+        docker buildx create --use
+        docker buildx build --platform linux/amd64,linux/arm64 -t $IMAGE_TAGGED_NAME .
 
         docker images
 
-        # Push the image to Docker Hub
-        docker push arafathbeevi/docker:latest
+        docker push $IMAGE_TAGGED_NAME
